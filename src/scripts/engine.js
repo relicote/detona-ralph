@@ -13,15 +13,23 @@ const state = {
         gameVelocity: 1000,
         hitPosition: 0,
         result: 0,
-        curretTime: 60,
+        curretTime: 2,
     },
 };
+
+function playSound(audioName){
+    let audio = new Audio(`./src/audios/${audioName}.m4a`);
+    audio.volume = 0.1;
+    audio.play();
+}
 
 function countDown(){
     state.values.curretTime--;
     state.view.timeLeft.textContent = state.values.curretTime;
 
     if(state.values.curretTime <= 0){
+        clearInterval(state.values.countDownTimerID);
+        clearInterval(state.values.timerId);
         alert('GAME OVER! O seu resultado foi: ' + state.values.result);
     }
 }
@@ -40,11 +48,6 @@ function randomSquare(){
 
 }
 
-// function moveEnemy(){
-//     state.values.timerId = setInterval(randomSquare, state.values.gameVelocity)
-// }
-
-
 function addListenerHitBox(){
     state.view.squares.forEach((square)=>{
         square.addEventListener("mousedown", ()=>{
@@ -52,6 +55,7 @@ function addListenerHitBox(){
                 state.values.result++
                 state.view.score.textContent = state.values.result;
                 state.values.hitPosition = null;
+                playSound("hit");
             }
         })
        
@@ -59,11 +63,9 @@ function addListenerHitBox(){
 }
 
 
-// criando função de start
+
 function initialize(){
-    // moveEnemy();
-    addListenerHitBox();
-    // countDown();
+    addListenerHitBox();    
 }
 
 // iniciando o callback da função
