@@ -21,14 +21,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #ff0000;
 }
 
 .square{
     height: 150px;
     width: 150px;
     border: 1px solid black;
-    background-color: #80ffd4
+    background-color: #19e9a4
 }
 
 .enemy{
