@@ -11,9 +11,19 @@ const state = {
         timerId: null,
         gameVelocity: 1000,
         hitPosition: 0,
-        result: 0
+        result: 0,
+        curretTime: 60,
     },
 };
+
+function countDown(){
+    state.values.curretTime--;
+    state.view.timeLeft.textContent = state.values.curretTime;
+
+    if(state.values.curretTime <= 0){
+        alert('GAME OVER! O seu resultado foi: ' + state.values.result);
+    }
+}
 
 function randomSquare(){
 
