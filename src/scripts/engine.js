@@ -8,7 +8,8 @@ const state = {
         score: document.querySelector("#score"),
     },
     values: {
-        timerId: null,
+        timerId: setInterval(randomSquare, 1000),
+        countDownTimerID: setInterval(countDown, 1000),
         gameVelocity: 1000,
         hitPosition: 0,
         result: 0,
@@ -39,9 +40,9 @@ function randomSquare(){
 
 }
 
-function moveEnemy(){
-    state.values.timerId = setInterval(randomSquare, state.values.gameVelocity)
-}
+// function moveEnemy(){
+//     state.values.timerId = setInterval(randomSquare, state.values.gameVelocity)
+// }
 
 
 function addListenerHitBox(){
@@ -60,8 +61,9 @@ function addListenerHitBox(){
 
 // criando função de start
 function initialize(){
-    moveEnemy();
+    // moveEnemy();
     addListenerHitBox();
+    // countDown();
 }
 
 // iniciando o callback da função
