@@ -13,9 +13,13 @@ const state = {
         gameVelocity: 1000,
         hitPosition: 0,
         result: 0,
-        curretTime: 2,
+        curretTime: 60,
     },
 };
+
+// Adicionar som de game over
+// Reduzir as vidas ao errar o click
+// Resetar o tempo e pontuação quando acabar o timer
 
 function playSound(audioName){
     let audio = new Audio(`./src/audios/${audioName}.m4a`);
